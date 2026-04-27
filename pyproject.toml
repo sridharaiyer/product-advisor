@@ -1,0 +1,17 @@
+[project]
+name = "product-advisor"
+version = "0.1.0"
+description = "Amway Product Advisor - Hybrid LLM + deterministic recommendation system"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.0",
+    "httpx>=0.27.0",
+    "python-dotenv>=1.0.0",
+    "langchain>=1.2.15",
+    "langchain-core>=1.3.2",
+    "langchain-openai>=1.2.1",
+]
