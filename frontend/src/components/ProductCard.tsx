@@ -31,20 +31,20 @@ export default function ProductCard({ product }: { product: Product }) {
     .filter(Boolean);
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md dark:hover:shadow-gray-900/50 transition-shadow">
       {/* Header */}
       <div className="p-6 pb-4">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
-            <span className="text-xs font-semibold text-indigo-600 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
               {product.brand}
             </span>
-            <h3 className="text-lg font-semibold text-gray-900 mt-1 leading-snug">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-1 leading-snug">
               {product.name}
             </h3>
           </div>
           <div className="text-right shrink-0">
-            <span className="text-2xl font-bold text-gray-900">
+            <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               ${product.price.toFixed(2)}
             </span>
           </div>
@@ -55,7 +55,7 @@ export default function ProductCard({ product }: { product: Product }) {
           {benefits.map((b) => (
             <span
               key={b}
-              className="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-medium rounded-full"
+              className="px-2.5 py-1 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-xs font-medium rounded-full"
             >
               {b}
             </span>
@@ -64,8 +64,8 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
 
       {/* Why Choose Amway */}
-      <div className="px-6 py-4 bg-emerald-50 border-t border-b border-emerald-100">
-        <h4 className="text-sm font-semibold text-emerald-800 mb-1.5 flex items-center gap-1.5">
+      <div className="px-6 py-4 bg-emerald-50 dark:bg-emerald-950/40 border-t border-b border-emerald-100 dark:border-emerald-900">
+        <h4 className="text-sm font-semibold text-emerald-800 dark:text-emerald-400 mb-1.5 flex items-center gap-1.5">
           <svg
             className="w-4 h-4"
             fill="currentColor"
@@ -79,7 +79,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </svg>
           Why Choose Amway
         </h4>
-        <p className="text-sm text-emerald-700 leading-relaxed">
+        <p className="text-sm text-emerald-700 dark:text-emerald-300 leading-relaxed">
           {product.why_choose_amway}
         </p>
       </div>
@@ -88,7 +88,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="px-6 py-3">
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-sm text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1"
+          className="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium flex items-center gap-1"
         >
           {expanded
             ? "Show less"
@@ -114,29 +114,29 @@ export default function ProductCard({ product }: { product: Product }) {
           <div className="mt-4 space-y-4 pb-2">
             {/* Product details */}
             <div>
-              <h5 className="text-sm font-medium text-gray-700 mb-1">
+              <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Product Details
               </h5>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                 {product.details}
               </p>
             </div>
 
             {/* Competitor comparison */}
             {product.competitor.brand && (
-              <div className="bg-gray-50 rounded-lg p-4">
-                <h5 className="text-sm font-medium text-gray-700 mb-2">
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   vs. {product.competitor.brand} —{" "}
                   {product.competitor.product}
                 </h5>
-                <p className="text-sm text-gray-500 leading-relaxed">
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                   {product.competitor.description}
                 </p>
                 <div className="flex items-center gap-4 mt-3 text-sm">
                   {product.competitor.price && (
-                    <span className="text-gray-500">
+                    <span className="text-gray-500 dark:text-gray-400">
                       Competitor price:{" "}
-                      <span className="font-medium text-gray-700">
+                      <span className="font-medium text-gray-700 dark:text-gray-300">
                         ${product.competitor.price}
                       </span>
                     </span>
@@ -146,7 +146,7 @@ export default function ProductCard({ product }: { product: Product }) {
                       href={product.competitor.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-indigo-500 hover:text-indigo-700 underline"
+                      className="text-indigo-500 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline"
                     >
                       View competitor
                     </a>
