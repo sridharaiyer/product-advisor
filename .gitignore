@@ -16,3 +16,10 @@ wheels/
 node_modules/
 frontend/.next/
 frontend/out/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

@@ -189,13 +189,13 @@ export default function Advisor() {
   /* ---- render ---- */
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+    <div className="max-w-4xl mx-auto px-5 pt-10 pb-8 sm:pt-14 sm:pb-12">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent tracking-tight">
           Amway Product Advisor
         </h1>
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-500 mt-2 text-sm sm:text-base">
           Answer a few questions and we&apos;ll find the perfect products for you
         </p>
       </div>
@@ -375,15 +375,15 @@ export default function Advisor() {
               </div>
             )}
 
-            <div className="flex items-center justify-between mt-6">
-              <BackButton onClick={handleBack} />
-              <div className="flex items-center gap-3">
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
+              <BackButton onClick={handleBack} noMargin />
+              <div className="flex items-center justify-end gap-3">
                 <button
                   onClick={() => {
                     setFreeform("");
                     submit();
                   }}
-                  className="text-sm text-gray-500 hover:text-gray-700"
+                  className="text-sm text-gray-500 hover:text-gray-700 px-3 py-2"
                 >
                   Skip
                 </button>
@@ -485,11 +485,11 @@ export default function Advisor() {
 /*  Small helpers                                                      */
 /* ------------------------------------------------------------------ */
 
-function BackButton({ onClick }: { onClick: () => void }) {
+function BackButton({ onClick, noMargin }: { onClick: () => void; noMargin?: boolean }) {
   return (
     <button
       onClick={onClick}
-      className="mt-6 text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+      className={`${noMargin ? '' : 'mt-6'} text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1`}
     >
       &larr; Back
     </button>
