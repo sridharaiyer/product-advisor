@@ -16,6 +16,8 @@ wheels/
 node_modules/
 frontend/.next/
 frontend/out/
+# Override global gitignore — lockfile is needed for CI caching
+!frontend/package-lock.json
 
 # Playwright
 /test-results/
