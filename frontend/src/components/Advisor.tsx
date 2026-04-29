@@ -195,7 +195,7 @@ export default function Advisor() {
         <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent tracking-tight">
           Amway Product Advisor
         </h1>
-        <p className="text-gray-500 mt-2 text-sm sm:text-base">
+        <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm sm:text-base">
           Answer a few questions and we&apos;ll find the perfect products for you
         </p>
       </div>
@@ -208,10 +208,10 @@ export default function Advisor() {
               <div
                 className={`flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                   i < stepIndex
-                    ? "bg-indigo-100 text-indigo-700"
+                    ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300"
                     : i === stepIndex
                       ? "bg-indigo-600 text-white"
-                      : "bg-gray-100 text-gray-400"
+                      : "bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500"
                 }`}
               >
                 <span className="w-5 h-5 flex items-center justify-center text-xs">
@@ -222,7 +222,7 @@ export default function Advisor() {
               {i < stepLabels.length - 1 && (
                 <div
                   className={`w-4 sm:w-8 h-0.5 ${
-                    i < stepIndex ? "bg-indigo-300" : "bg-gray-200"
+                    i < stepIndex ? "bg-indigo-300 dark:bg-indigo-700" : "bg-gray-200 dark:bg-gray-700"
                   }`}
                 />
               )}
@@ -232,11 +232,11 @@ export default function Advisor() {
       )}
 
       {/* Content Card */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sm:p-8">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 sm:p-8">
         {/* ===== CATEGORY ===== */}
         {step === "category" && (
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
               What area are you looking to improve?
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -257,13 +257,13 @@ export default function Advisor() {
                 <button
                   key={opt.value}
                   onClick={() => selectCategory(opt.value)}
-                  className="group p-6 rounded-xl border-2 border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all text-left"
+                  className="group p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-all text-left"
                 >
                   <span className="text-3xl">{opt.icon}</span>
-                  <h3 className="text-lg font-semibold mt-3 text-gray-900 group-hover:text-indigo-700">
+                  <h3 className="text-lg font-semibold mt-3 text-gray-900 dark:text-gray-100 group-hover:text-indigo-700 dark:group-hover:text-indigo-400">
                     {opt.label}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">{opt.desc}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{opt.desc}</p>
                 </button>
               ))}
             </div>
@@ -273,12 +273,12 @@ export default function Advisor() {
         {/* ===== GOAL ===== */}
         {step === "goal" && (
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-1">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
               {category === "Beauty"
                 ? "What\u2019s your primary skin concern?"
                 : "What\u2019s your primary health goal?"}
             </h2>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
               Select the area that matters most to you right now
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -286,16 +286,16 @@ export default function Advisor() {
                 <button
                   key={opt.value}
                   onClick={() => selectGoal(opt.value)}
-                  className="group p-4 rounded-xl border-2 border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all text-left"
+                  className="group p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-all text-left"
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-xl">{opt.icon}</span>
-                    <h3 className="font-medium text-gray-900 group-hover:text-indigo-700">
+                    <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-indigo-700 dark:group-hover:text-indigo-400">
                       {opt.label}
                     </h3>
                   </div>
                   {opt.description && (
-                    <p className="text-xs text-gray-500 mt-1 ml-8">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-8">
                       {opt.description}
                     </p>
                   )}
@@ -309,10 +309,10 @@ export default function Advisor() {
         {/* ===== FORMAT ===== */}
         {step === "format" && (
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-1">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
               Preferred product format?
             </h2>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
               How do you like to take your supplements?
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -320,10 +320,10 @@ export default function Advisor() {
                 <button
                   key={opt.value}
                   onClick={() => selectFormat(opt.value)}
-                  className="group p-4 rounded-xl border-2 border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all text-center"
+                  className="group p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-all text-center"
                 >
                   <span className="text-2xl">{opt.icon}</span>
-                  <h3 className="font-medium text-gray-900 group-hover:text-indigo-700 mt-2 text-sm">
+                  <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-indigo-700 dark:group-hover:text-indigo-400 mt-2 text-sm">
                     {opt.label}
                   </h3>
                 </button>
@@ -336,16 +336,16 @@ export default function Advisor() {
         {/* ===== FREEFORM ===== */}
         {step === "freeform" && (
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-1">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
               Anything else we should know?
             </h2>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
               Tell us about your lifestyle, specific concerns, or preferences.
               This helps us personalize your recommendations.
             </p>
 
             {/* Selection summary */}
-            <div className="bg-gray-50 rounded-lg p-4 mb-6 text-sm text-gray-600 flex flex-wrap gap-2">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-6 text-sm text-gray-600 dark:text-gray-300 flex flex-wrap gap-2">
               <SelectionBadge label={category} />
               {selectedGoalLabel && <SelectionBadge label={selectedGoalLabel} />}
               {formatPref && formatPref !== "no_preference" && (
@@ -362,15 +362,15 @@ export default function Advisor() {
               value={freeform}
               onChange={(e) => setFreeform(e.target.value)}
               placeholder="e.g., I'm a 35-year-old runner looking for joint support and something easy to take on the go..."
-              className="w-full h-28 px-4 py-3 rounded-xl border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none resize-none text-sm"
+              className="w-full h-28 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800 outline-none resize-none text-sm"
               maxLength={500}
             />
-            <p className="text-xs text-gray-400 mt-1 text-right">
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1 text-right">
               {freeform.length}/500
             </p>
 
             {error && (
-              <div className="mt-3 p-3 bg-red-50 text-red-700 text-sm rounded-lg">
+              <div className="mt-3 p-3 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 text-sm rounded-lg">
                 {error}
               </div>
             )}
@@ -383,7 +383,7 @@ export default function Advisor() {
                     setFreeform("");
                     submit();
                   }}
-                  className="text-sm text-gray-500 hover:text-gray-700 px-3 py-2"
+                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 px-3 py-2"
                 >
                   Skip
                 </button>
@@ -401,8 +401,8 @@ export default function Advisor() {
         {/* ===== LOADING ===== */}
         {step === "loading" && (
           <div className="text-center py-12">
-            <div className="inline-block w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin" />
-            <p className="text-gray-500 mt-4">
+            <div className="inline-block w-10 h-10 border-4 border-indigo-200 dark:border-indigo-800 border-t-indigo-600 dark:border-t-indigo-400 rounded-full animate-spin" />
+            <p className="text-gray-500 dark:text-gray-400 mt-4">
               Finding the best products for you...
             </p>
           </div>
@@ -413,24 +413,24 @@ export default function Advisor() {
           <div>
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-xl font-semibold text-gray-900">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                   Your Recommendations
                 </h2>
-                <p className="text-sm text-gray-500 mt-1">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                   We found {products.length} product
                   {products.length !== 1 ? "s" : ""} matching your needs
                 </p>
               </div>
               <button
                 onClick={reset}
-                className="px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-colors"
               >
                 Start Over
               </button>
             </div>
 
             {/* Selection summary */}
-            <div className="bg-gray-50 rounded-lg p-3 mb-6 text-sm text-gray-600 flex flex-wrap gap-2">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 mb-6 text-sm text-gray-600 dark:text-gray-300 flex flex-wrap gap-2">
               <SelectionBadge label={category} />
               {selectedGoalLabel && <SelectionBadge label={selectedGoalLabel} />}
               {formatPref && formatPref !== "no_preference" && (
@@ -442,7 +442,7 @@ export default function Advisor() {
                 />
               )}
               {freeform && (
-                <span className="px-2.5 py-1 bg-amber-100 text-amber-700 rounded-full font-medium italic">
+                <span className="px-2.5 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded-full font-medium italic">
                   &quot;{freeform.slice(0, 60)}
                   {freeform.length > 60 ? "..." : ""}&quot;
                 </span>
@@ -451,13 +451,13 @@ export default function Advisor() {
 
             {products.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-gray-500">
+                <p className="text-gray-500 dark:text-gray-400">
                   No products found matching your criteria. Try broadening your
                   search.
                 </p>
                 <button
                   onClick={reset}
-                  className="mt-4 text-indigo-600 hover:text-indigo-800 font-medium"
+                  className="mt-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium"
                 >
                   Start Over
                 </button>
@@ -474,7 +474,7 @@ export default function Advisor() {
       </div>
 
       {/* Footer */}
-      <p className="text-center text-xs text-gray-400 mt-8">
+      <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-8">
         Powered by Nutrilite &mdash; from seed to supplement
       </p>
     </div>
@@ -489,7 +489,7 @@ function BackButton({ onClick, noMargin }: { onClick: () => void; noMargin?: boo
   return (
     <button
       onClick={onClick}
-      className={`${noMargin ? '' : 'mt-6'} text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1`}
+      className={`${noMargin ? '' : 'mt-6'} text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 flex items-center gap-1`}
     >
       &larr; Back
     </button>
@@ -498,7 +498,7 @@ function BackButton({ onClick, noMargin }: { onClick: () => void; noMargin?: boo
 
 function SelectionBadge({ label }: { label: string }) {
   return (
-    <span className="px-2.5 py-1 bg-indigo-100 text-indigo-700 rounded-full font-medium">
+    <span className="px-2.5 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full font-medium">
       {label}
     </span>
   );
