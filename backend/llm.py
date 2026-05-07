@@ -3,7 +3,7 @@ from enum import Enum
 from pathlib import Path
 
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field
 
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
@@ -56,19 +56,18 @@ class UserIntent(BaseModel):
     )
 
 
-_llm: ChatOpenAI | None = None
+_llm: ChatOllama | None = None
 
 
-def _get_llm() -> ChatOpenAI | None:
+def _get_llm() -> ChatOllama | None:
     global _llm
     if _llm is not None:
         return _llm
-    if not os.getenv("OPENAI_API_KEY"):
+    if not os.getenv("OLLAMA_API_KEY"):
         return None
-    _llm = ChatOpenAI(
-        model=os.getenv("OPENAI_MODEL_NAME", "gpt-5-nano"),
+    _llm = ChatOllama(
+        model=os.getenv("OLLAMA_MODEL", "gemma4:31b-cloud"),
         temperature=0,
-        max_tokens=150,
     )
     return _llm
 
